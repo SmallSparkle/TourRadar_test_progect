@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import tests.steps.BaseSteps;
+import tests.steps.TourCardSteps;
 import tests.steps.TourListSteps;
 
 import static io.qameta.allure.Allure.step;
@@ -14,6 +15,7 @@ import static io.qameta.allure.Allure.step;
 class EuropaPageTests extends TestBase {
     private final BaseSteps baseStep = new BaseSteps();
     private final TourListSteps tourListStep = new TourListSteps();
+    private final TourCardSteps tourCardStep = new TourCardSteps();
 
     @Test
     @AllureId("5949")
@@ -31,10 +33,11 @@ class EuropaPageTests extends TestBase {
     @DisplayName("Check Tour card contents all important attributes")
     public void tourCardTest() {
         baseStep.openEuropeURL();
-        step("Select 1st Tour card");
-        step("Check that card contents tour price");
-        step("Check that card contents tour name");
-        step("Check that card contents View tour & Download Brochure  buttons");
+        tourCardStep.select1stTourCard();
+        tourCardStep.checkTourPrice();
+        tourCardStep.checkTourName();
+        tourCardStep.checkViewTourButton();
+        tourCardStep.checkDownloadBrochureButton();
     }
 
 }
