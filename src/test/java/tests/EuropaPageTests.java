@@ -6,9 +6,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
-import tests.steps.BaseSteps;
-import tests.steps.TourCardSteps;
-import tests.steps.TourListSteps;
+import tests.steps.*;
 
 import static io.qameta.allure.Allure.step;
 
@@ -16,6 +14,8 @@ class EuropaPageTests extends TestBase {
     private final BaseSteps baseStep = new BaseSteps();
     private final TourListSteps tourListStep = new TourListSteps();
     private final TourCardSteps tourCardStep = new TourCardSteps();
+    private final HeaderSteps headerStep = new HeaderSteps();
+    private final LoginSteps loginStep = new LoginSteps();
 
     @Test
     @AllureId("5949")
@@ -38,6 +38,17 @@ class EuropaPageTests extends TestBase {
         tourCardStep.checkTourName();
         tourCardStep.checkViewTourButton();
         tourCardStep.checkDownloadBrochureButton();
+    }
+
+    @Test
+    @AllureId("5950")
+    @DisplayName("Check the transition to the login page from the header")
+    public void openLoginPageFromHeaderTest() {
+        baseStep.openEuropeURL();
+        headerStep.hoverProfileIcon();
+        headerStep.clickLoginButton();
+        loginStep.checkLoginPageIsOpened();
+        loginStep.checkLoginForm();
     }
 
 }
