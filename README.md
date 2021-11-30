@@ -13,6 +13,8 @@ Serve report:
 ```bash
 allure serve build/allure-results
 ```
+![screenshot](images/AllureReport2.png)
+
 ![screenshot](images/AllureReport.png)
 <br><br>
 #### *Allure TestOps is used as Test Management system:*
