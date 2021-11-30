@@ -9,8 +9,8 @@ import static com.codeborne.selenide.Selenide.$;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class TourCardSteps {
-
-    SelenideElement fistTourCardSelector = $(".js-serp-tour-list")
+    SelenideElement fistTourCardSelector =
+            $(".js-serp-tour-list")
             .$$(".tour")
             .first();
 

@@ -14,14 +14,12 @@ public class LoginSteps {
 
     @Step("Check that /login page has a login form")
     public void checkLoginForm() {
-       $("#g_email")
-               .shouldBe(visible);
-       $("#g_password")
-               .shouldBe(visible);
-       $("#g_send")
-               .shouldBe(visible)
-               .shouldHave(text("Log in"));
+        $("#g_email")
+                .shouldBe(visible);
+        $("#g_password")
+                .shouldBe(visible);
+        $("#g_send")
+                .shouldBe(visible)
+                .shouldHave(text("Log in"));
     }
-
-
 }

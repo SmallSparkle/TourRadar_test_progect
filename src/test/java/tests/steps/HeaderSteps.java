@@ -13,7 +13,7 @@ public class HeaderSteps {
     }
 
     @Step("Click on Log In button")
-    public void clickLoginButton(){
+    public void clickLoginButton() {
         $(byText("Log In")).click();
     }
 }

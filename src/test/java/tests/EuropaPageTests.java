@@ -8,14 +8,13 @@ import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import tests.steps.*;
 
-import static io.qameta.allure.Allure.step;
-
 class EuropaPageTests extends TestBase {
     private final BaseSteps baseStep = new BaseSteps();
     private final TourListSteps tourListStep = new TourListSteps();
     private final TourCardSteps tourCardStep = new TourCardSteps();
     private final HeaderSteps headerStep = new HeaderSteps();
     private final LoginSteps loginStep = new LoginSteps();
+    private final FilterSteps filterStep = new FilterSteps();
 
     @Test
     @AllureId("5949")
@@ -29,6 +28,7 @@ class EuropaPageTests extends TestBase {
     }
 
     @Test
+    @Tag("web")
     @AllureId("5960")
     @DisplayName("Check Tour card contents all important attributes")
     public void tourCardTest() {
@@ -41,6 +41,7 @@ class EuropaPageTests extends TestBase {
     }
 
     @Test
+    @Tag("web")
     @AllureId("5950")
     @DisplayName("Check the transition to the login page from the header")
     public void openLoginPageFromHeaderTest() {
@@ -51,4 +52,15 @@ class EuropaPageTests extends TestBase {
         loginStep.checkLoginForm();
     }
 
+    @Test
+    @AllureId("5952")
+    @DisplayName("Check tour filtering by Adventure Type")
+    @Tag("web")
+    @Owner("c4-SmallSparkle")
+    public void filteringByAdventureTypeTest() {
+        baseStep.openEuropeURL();
+        filterStep.selectAdventureTypePrivat();
+        filterStep.setCountPerson();
+        tourListStep.checkTourListIsSorted();
+    }
 }
